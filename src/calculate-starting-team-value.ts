@@ -28,7 +28,7 @@ export async function calculateStartingTeamValue(
         .then(
           (marketValues) =>
             marketValues?.find((e) =>
-              e.day.toISOString().startsWith("2023-08-06")
+              e.day.toISOString().startsWith("2024-08-01")
             )?.value
         )
         .then((value) => value ?? 0)
