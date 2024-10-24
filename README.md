@@ -1,2 +1,2 @@
 # kickbase-balances
-https://felixschusi.github.io/kickbase-balances/
+https://chrisivogt.github.io/kickbase-balances/
