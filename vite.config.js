@@ -1,4 +1,4 @@
 /** @type {import('vite').UserConfig} */
 export default {
-  base: "/kickbase-balances/",
+  base: "/kickbase-balances-variable-date/",
 };
