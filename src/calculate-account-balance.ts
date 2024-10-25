@@ -24,8 +24,7 @@ export async function calculateAccountBalance(
 
   // When a user joins they get a random team worth roughly 100M.
   // The starting account balance is 150M - the value of the randomly assigned starting team.
-  var startingBalance = 150000000 - startingTeamValue;
-  startingBalance = 15000000000
+  const  startingBalance = 15000000000 - startingTeamValue;
   const currentBalanceMin =    startingBalance + (leagueUserTransfersResult ?? 0) + user.points * 1000;
   const currentBalance: NumberRange = {
     min: currentBalanceMin,
