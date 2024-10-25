@@ -198,11 +198,11 @@ export class LeagueService {
             type = "bought";
             price = -item.meta.p;
           } else if (item.type === 2) {
-            type = "sold";
-            price = item.meta.p;
-          } else {
             type = "unknown";
             price = 0;
+          } else {
+            type = "sold";
+            price = item.meta.p;
           }
 
           const res: Transfer = {
