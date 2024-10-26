@@ -5,6 +5,7 @@ export interface User {
   readonly userId: string;
   readonly userName: string;
   readonly email: string;
+  readonly budget: number;
 }
 
 export interface LineupEntry {
