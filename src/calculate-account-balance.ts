@@ -31,6 +31,7 @@ export async function calculateAccountBalance(
     min: currentBalanceMin,
     max: currentBalanceMin + maxDiffCausedByDailyBonus,
   };
+  var currentBalanceFromJSON = user.budget
 
   const teamValue = await leagueService.getTeamValue(leagueId, user.userId);
 
