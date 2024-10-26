@@ -10,6 +10,7 @@ export interface NumberRange {
 export interface UserBalanceData {
   username: string;
   currentBalance: NumberRange;
+  currentBalanceFromJSON: number;
   maxBid: NumberRange;
   teamValue: number;
 }
@@ -34,7 +35,8 @@ async function fetchAndCalculateBalances(
 function toHTML(data: UserBalanceData[]): string {
   const header = `
     <span>Name</span>
-    <span>Kontostand</span>
+    <span>Kontostand errechnet</span>
+    <span>Kontostand laut API</span>
     <span>Teamwert</span>
     <span>Maxbid</span>
   `;
@@ -44,6 +46,9 @@ function toHTML(data: UserBalanceData[]): string {
       <span class="balance"> ${MONEY_FORMATTER.format(
         e.currentBalance.min
       )} - ${MONEY_FORMATTER.format(e.currentBalance.max)} </span>
+      <span class="balance"> ${MONEY_FORMATTER.format(
+        e.currentBalanceFromJSON
+      )} </span>
       <span class="teamvalue"> ${MONEY_FORMATTER.format(e.teamValue)} </span>
       <span class="maxbid"> ${MONEY_FORMATTER.format(
         e.maxBid.min
