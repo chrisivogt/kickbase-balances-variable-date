@@ -44,6 +44,7 @@ export class LeagueService {
         userId: user.id,
         userName: user.name,
         email: user.email,
+        budget: user.budget,
       })
     );
   }
