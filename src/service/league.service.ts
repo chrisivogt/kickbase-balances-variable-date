@@ -39,7 +39,7 @@ export class LeagueService {
     const responseJson = (await response.json()) as any;
 
     return responseJson.users.map(
-      (user: { pt: any; id: any; name: any; email: any }) => ({
+      (user: { pt: any; id: any; name: any; email: any; budget: any }) => ({
         points: user.pt,
         userId: user.id,
         userName: user.name,
