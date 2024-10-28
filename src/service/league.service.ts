@@ -206,10 +206,10 @@ export class LeagueService {
           } else if (item.type === 2) {
             type = "sold";
             price = item.meta.p;
-          } else if (item.type === 15) && ('b' in item.meta) && item.meta.b.i == userId {
+          } else if (item.type === 15) && ('b' in item.meta) && (item.meta.b.i === userId) {
             type = "bought";
             price = -item.meta.v;
-          } else if (item.type === 15) && ('s' in item.meta) && item.meta.s.i == userId {
+          } else if (item.type === 15) && ('s' in item.meta) && (item.meta.s.i === userId) {
             type = "sold";
             price = item.meta.v;
           } else {
