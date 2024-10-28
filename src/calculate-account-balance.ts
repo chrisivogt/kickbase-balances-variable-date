@@ -23,9 +23,9 @@ export async function calculateAccountBalance(
   const maxDiffCausedByDailyBonus = 100_000 * daysSinceLeagueStarted;
 
   // When a user joins they get a random team worth roughly 100M.
-  // The starting account balance is 150M - the value of the randomly assigned starting team.
+  // The starting account balance is 50M - (?the value of the randomly assigned starting team?).
   var startingBalance = 150000000 - startingTeamValue;
-  startingBalance = 150000000
+  startingBalance = 50000000
   const currentBalanceMin =    startingBalance + (leagueUserTransfersResult ?? 0) + user.points * 1000;
   const currentBalance: NumberRange = {
     min: currentBalanceMin,
