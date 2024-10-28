@@ -187,7 +187,7 @@ export class LeagueService {
           authService.requestHeaders
         );*/
         response = await fetch( 
-          `https://api.kickbase.com/v2/leagues/${leagueId}/feed?filter=15&start=${startIdx}`,
+          `https://api.kickbase.com/v4/leagues/${leagueId}/managers/${userId}/transfer?start=${startIdx}`,
           authService.requestHeaders
         );
       } catch (e) {
@@ -196,22 +196,16 @@ export class LeagueService {
       if (response.status !== 200) return [];
       try {
         const responseJson = (await response.json()) as any;
-        return (responseJson.items as any[]).map((item) => {
+        return (responseJson.it as any[]).map((item) => {
           let type: "bought" | "sold" | "unknown";
           let price: number;
 
-          if (item.type === 12) {
+          if (item.tty === 1) {
             type = "bought";
-            price = -item.meta.p;
-          } else if (item.type === 2) {
+            price = -item.trp;
+          } else if (item.tty === 2) {
             type = "sold";
-            price = item.meta.p;
-          } else if ((item.type === 15) && ('b' in item.meta) && (item.meta.b.i === userId))  {
-            type = "bought";
-            price = -item.meta.v;
-          } else if ((item.type === 15) && ('s' in item.meta) && (item.meta.s.i === userId)) {
-            type = "sold";
-            price = item.meta.v;
+            price = item.trp;
           } else {
             type = "unknown";
             price = 0;
