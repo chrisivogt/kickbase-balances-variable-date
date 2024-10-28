@@ -40,6 +40,6 @@ export async function calculateAccountBalance(
     max: (teamValue + currentBalance.max) * 0.33 + currentBalance.max,
   };
 
-  const erkannteTransfers = await leagueService.getAllTransfersExternal(leagueId, user.userId);
-  return { username: user.userName, currentBalance, currentBalanceFromJSON, teamValue, maxBid, erkannteTransfers.length };
+  const erkannteTransfers = await leagueService.getAllTransfersExternal(leagueId, user.userId).length;
+  return { username: user.userName, currentBalance, currentBalanceFromJSON, teamValue, maxBid, erkannteTransfers };
 }
