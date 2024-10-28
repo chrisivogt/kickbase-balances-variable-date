@@ -182,8 +182,12 @@ export class LeagueService {
     let startIdx: number = 0;
     async function tryFetch(): Promise<Transfer[]> {
       try {
-        response = await fetch(
+        /*response = await fetch(
           `https://api.kickbase.com/leagues/${leagueId}/users/${userId}/feed?filter=12%2C2&start=${startIdx}`,
+          authService.requestHeaders
+        );*/
+        response = await fetch( 
+          `https://api.kickbase.com/v2/leagues/${leagueId}/feed?filter=15&start=${startIdx}`,
           authService.requestHeaders
         );
       } catch (e) {
@@ -200,11 +204,17 @@ export class LeagueService {
             type = "bought";
             price = -item.meta.p;
           } else if (item.type === 2) {
-            type = "unknown";
-            price = 0;
-          } else {
             type = "sold";
             price = item.meta.p;
+          } else if (item.type === 15) && ('b' in item.meta) && item.meta.b.i == userId {
+            type = "bought";
+            price = -item.meta.v;
+          } else if (item.type === 15) && ('s' in item.meta) && item.meta.s.i == userId {
+            type = "sold";
+            price = item.meta.v;
+          } else {
+            type = "unknown";
+            price = 0;
           }
 
           const res: Transfer = {
