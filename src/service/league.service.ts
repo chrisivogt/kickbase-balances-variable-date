@@ -206,12 +206,18 @@ export class LeagueService {
           } else if (item.type === 2) {
             type = "sold";
             price = item.meta.p;
-          } else if (item.type === 15) && ('b' in item.meta) && (item.meta.b.i === userId) {
-            type = "bought";
-            price = -item.meta.v;
-          } else if (item.type === 15) && ('s' in item.meta) && (item.meta.s.i === userId) {
-            type = "sold";
-            price = item.meta.v;
+          } else if (item.type === 15) {
+            if ('b' in item.meta) { 
+              if (item.meta.b.i === userId) {
+                type = "bought";
+                price = -item.meta.v;
+              }
+            } else if ('s' in item.meta) {
+              if (item.meta.s.i === userId) {
+                type = "sold";
+                price = item.meta.v;
+              }
+            }
           } else {
             type = "unknown";
             price = 0;
