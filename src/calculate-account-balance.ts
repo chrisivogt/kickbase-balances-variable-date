@@ -39,5 +39,7 @@ export async function calculateAccountBalance(
     min: (teamValue + currentBalance.min) * 0.33 + currentBalance.min,
     max: (teamValue + currentBalance.max) * 0.33 + currentBalance.max,
   };
-  return { username: user.userName, currentBalance, currentBalanceFromJSON, teamValue, maxBid };
+
+  const erkannteTransfers = await leagueService.getAllTransfersExternal(leagueId, user.userId);
+  return { username: user.userName, currentBalance, currentBalanceFromJSON, teamValue, maxBid, erkannteTransfers };
 }
