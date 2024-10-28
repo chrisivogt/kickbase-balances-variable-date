@@ -99,6 +99,13 @@ export class LeagueService {
       .reduce((a: number, b: number) => a + b, 0);
   }
 
+  public async getAllTransfersExternal(
+    leagueId: string,
+    userId: string
+  ): Promise<Transfer[]> {
+    return allTransfers;
+  }
+
   public async getOriginalLineup(
     leagueId: string,
     userId: string
