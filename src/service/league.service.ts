@@ -103,7 +103,7 @@ export class LeagueService {
     leagueId: string,
     userId: string
   ): Promise<Transfer[]> {
-    return allTransfers;
+    return (await this.getAllTransfers(leagueId, userId));
   }
 
   public async getOriginalLineup(
