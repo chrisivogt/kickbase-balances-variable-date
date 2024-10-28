@@ -13,6 +13,7 @@ export interface UserBalanceData {
   currentBalanceFromJSON: number;
   maxBid: NumberRange;
   teamValue: number;
+  erkannteTransfers: number;
 }
 
 const MONEY_FORMATTER = new Intl.NumberFormat("de-DE", {
@@ -39,6 +40,7 @@ function toHTML(data: UserBalanceData[]): string {
     <span>Kontostand laut API</span>
     <span>Teamwert</span>
     <span>Maxbid</span>
+    <span>Erkannte Transfers</span>
   `;
   const rows = data.map(
     (e) => `
@@ -53,6 +55,7 @@ function toHTML(data: UserBalanceData[]): string {
       <span class="maxbid"> ${MONEY_FORMATTER.format(
         e.maxBid.min
       )} - ${MONEY_FORMATTER.format(e.maxBid.max)} </span>
+      <span class="name"> ${e.erkannteTransfers}</span>
     `
   );
   return header + rows.join("");
