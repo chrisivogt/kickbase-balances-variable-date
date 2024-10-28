@@ -88,7 +88,6 @@ leagueSelect.addEventListener("change", async () => {
   document.querySelector(".loading-bar")?.classList.remove("loading");
   document.querySelector(".data-container")!.innerHTML = toHTML(data);
 });
-localStorage.clear();
 login().then(async (loginResponse: LoginResponse) => {
   leagueSelect.innerHTML = `
     <option value="">Liga auswählen</option>
