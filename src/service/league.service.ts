@@ -228,9 +228,9 @@ export class LeagueService {
           const res: Transfer = {
             type,
             price,
-            playerId: item.meta.pid,
-            playerFirstName: item.meta.pfn,
-            playerLastName: item.meta.pln,
+            playerId: item.pi,
+            playerFirstName: item.pn,
+            playerLastName: item.pn,
           };
           return res;
         });
