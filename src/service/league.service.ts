@@ -107,8 +107,8 @@ export class LeagueService {
   }
 
   public async getTransferAmount(
-    leagueId: String,
-    userId: String
+    leagueId: string,
+    userId: string
   ): Promise<number> {
     return (await this.getAllTransfers(leagueId, userId))
       .map((item) => 1)
