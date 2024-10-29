@@ -91,6 +91,15 @@ leagueSelect.addEventListener("change", async () => {
   document.querySelector(".loading-bar")?.classList.remove("loading");
   document.querySelector(".data-container")!.innerHTML = toHTML(data);
 });
+
+const button = document.createElement('button');
+button.textContent = 'Reload API';
+button.addEventListener('click', () => {
+  localStorage.clear();
+  window.location.reload();
+});
+document.body.appendChild(button);
+
 login().then(async (loginResponse: LoginResponse) => {
   leagueSelect.innerHTML = `
     <option value="">Liga auswählen</option>
