@@ -110,9 +110,7 @@ export class LeagueService {
     leagueId: string,
     userId: string
   ): Promise<number> {
-    return (await this.getAllTransfers(leagueId, userId))
-      .map()
-      .reduce((a: number, b: number) => a + 1, 0);
+    return (await this.getAllTransfers(leagueId, userId)).length;
   }
 
   public async getOriginalLineup(
