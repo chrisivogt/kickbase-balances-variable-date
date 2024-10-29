@@ -93,7 +93,7 @@ leagueSelect.addEventListener("change", async () => {
 });
 
 const button = document.createElement('button');
-button.textContent = 'Reload API';
+button.textContent = 'Logout';
 button.addEventListener('click', () => {
   localStorage.clear();
   window.location.reload();
