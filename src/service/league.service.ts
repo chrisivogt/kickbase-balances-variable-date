@@ -109,7 +109,7 @@ export class LeagueService {
   public async getTransferAmount(
     leagueId: String,
     userId: String
-  ): Promised<number> {
+  ): Promise<number> {
     return (await this.getAllTransfers(leagueId, userId))
       .map((item) => 1)
       .reduce((a: number, b: number) => a + b, 0);
