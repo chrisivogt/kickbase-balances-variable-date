@@ -95,7 +95,6 @@ export class LeagueService {
     userId: string
   ): Promise<number | undefined> {
     return (await this.getAllTransfers(leagueId, userId))
-      .map((item) => item.price)
       .reduce((a: number, b: number) => a + b, 0);
   }
 
