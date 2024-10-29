@@ -111,6 +111,7 @@ export class LeagueService {
     userId: string
   ): Promise<number> {
     return (await this.getAllTransfers(leagueId, userId))
+      .map()
       .reduce((a: number, b: number) => a + b, 0);
   }
 
