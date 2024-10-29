@@ -106,6 +106,15 @@ export class LeagueService {
     return (await this.getAllTransfers(leagueId, userId));
   }
 
+  public async getTransferAmount(
+    leagueId: String,
+    userId: String
+  ): Promised<number> {
+    return (await this.getAllTransfers(leagueId, userId))
+      .map((item) => 1)
+      .reduce((a: number, b: number) => a + b, 0);
+  }
+
   public async getOriginalLineup(
     leagueId: string,
     userId: string
