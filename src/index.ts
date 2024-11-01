@@ -36,12 +36,12 @@ async function fetchAndCalculateBalances(
 
 function toHTML(data: UserBalanceData[]): string {
   const header = `
-    <span class="name">Name</span>
-    <span class="balance">Kontostand errechnet</span>
-    <span class="balance">Kontostand laut API</span>
-    <span class="teamvalue">Teamwert</span>
-    <span class="maxbid">Maxbid</span>
-    <span class="name">Erkannte Transfers</span>
+    <span>Name</span>
+    <span>Kontostand errechnet</span>
+    <span>Kontostand laut API</span>
+    <span>Teamwert</span>
+    <span>Maxbid</span>
+    <span>Erkannte Transfers</span>
   `;
   const rows = data.map(
     (e) => `
