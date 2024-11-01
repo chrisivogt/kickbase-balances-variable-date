@@ -1,4 +1,3 @@
-
 import { LoginResponse, authService } from "./service/auth.service";
 import { leagueService } from "./service/league.service";
 import { calculateAccountBalance } from "./calculate-account-balance";
@@ -92,15 +91,6 @@ leagueSelect.addEventListener("change", async () => {
   document.querySelector(".loading-bar")?.classList.remove("loading");
   document.querySelector(".data-container")!.innerHTML = toHTML(data);
 });
-
-const button = document.createElement('button');
-button.textContent = 'Logout';
-button.addEventListener('click', () => {
-  localStorage.clear();
-  window.location.reload();
-});
-document.body.appendChild(button);
-
 login().then(async (loginResponse: LoginResponse) => {
   leagueSelect.innerHTML = `
     <option value="">Liga auswählen</option>
