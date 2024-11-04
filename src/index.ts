@@ -26,6 +26,14 @@ async function fetchAndCalculateBalances(
   leagueId: string
 ): Promise<UserBalanceData[]> {
   if (leagueId === undefined) return [];
+
+  const startDate = localStorage.getItem(`KB_SD_${leagueId}`) ?? prompt(`Start Date: ${leagueId}`) ?? "";
+  if (startDate === "") {
+    alert("enter start date of league");
+    throw new Error("start date missing");
+  } else {
+    localStorage.setItem(`KB_SD_${leagueId}`, startDate);
+  }
   const leaguePlayersResult = await leagueService.getUsers(leagueId);
 
   return await Promise.all(
@@ -68,6 +76,7 @@ async function login(): Promise<LoginResponse> {
     "";
   const password =
     localStorage.getItem("KB_PASSWORD") ?? prompt("Kickbase Passwort:") ?? "";
+  
   const loginResult = await authService.login(username, password);
 
   if (loginResult === undefined) {
